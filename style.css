@@ -1,0 +1,461 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.bg{
+    background-color:black;
+    text-align: center;
+}
+.s{
+    font-size: 18px;
+    padding: 0px 29px 0px 0px;
+    font-family: "Cantata One", serif;
+    font-family: "Open Sans", serif;
+    color: #fff;
+    line-height: 35px;
+    transition: all 400ms linear 0s;
+    padding-right: 20px;
+}
+
+.s1{
+    
+    font-size: 18px;
+    padding: 0px 29px 0px 0px;
+    font-family: "Cantata One", serif;
+    font-family: "Open Sans", serif;
+    color: #fff;
+    line-height: 35px;
+    transition: all 400ms linear 0s;
+    padding-right: 20px;
+}
+
+.s2{
+    padding-bottom: 8px;
+    padding-top: 5px;
+}
+.bg_banner{
+
+    background-image: url(../img/banner.jpg);
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+}
+      
+.bg_banner h2 {
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    font-size: 50px;
+    padding-top: 25vh;
+}
+
+.bg_banner p {
+    color: whitesmoke;
+    font-size: 26px;
+    text-align: center;
+    font-weight: 900;
+}
+
+.banner_part{
+    font-family: 'Great Vibes', cursive;
+}
+
+.banner_part h2 {
+    text-align: center;
+    padding-top: 12px;
+    font-size: 39px;
+    font-weight: 700;
+}
+
+.banner_part p {
+    text-align: center;
+    font-size: 26px;
+    padding-bottom: 13px;
+}
+
+.step i.bi.bi-house-fill {
+    font-size: 37px;
+    color: black;
+}
+
+.step {
+    text-align: center;
+    line-height: 27px;
+}
+
+.step i.bi.bi-cart3 {
+    font-size: 37px;
+    color: black;
+}
+
+.step i.bi.bi-wallet2{
+
+    font-size: 37px;
+    color: black;
+}
+
+.step i.bi.bi-emoji-smile{
+    font-size: 37px;
+    color: black;
+}
+
+.box1:hover{
+    background: #ffe2e2;
+    box-shadow: 1px 1px 8px -1px grey;
+    border-radius: 50%;
+}
+
+.box2:hover{
+    background: #ede2ff;
+    box-shadow: 1px 1px 8px -1px grey;
+    border-radius: 50%;
+}
+
+.box3:hover{
+    background: #ffe2fb;
+    box-shadow: 1px 1px 8px -1px grey;
+    border-radius: 50%;
+}
+
+.box4:hover{
+    background: #ede2ff;
+    box-shadow: 1px 1px 8px -1px grey;
+    border-radius: 50%;
+    
+}
+
+.step p{
+    font-size: 21px;
+    font-family: ui-serif;
+}
+
+.availabel h2 {
+    text-align: center;
+    font-size: 28px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-family: -webkit-body;
+}
+
+.veg_tiffin img{
+    height: 153px;
+    width: 200px;
+}
+
+.nonveg_tiffin img{
+    height: 153px;
+    width: 200px;
+}
+
+.footer{
+    background-color: black;
+    color: white;
+    
+}
+
+/*Contact page css*/
+
+.contact{
+    background-image: url(../../assist/img/Contact-Us-banner_new.jpg);
+    height: 355px;
+    width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 150px 40px;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-width: 0;
+        background-size: cover;
+    
+}
+
+.contact h2 {
+    color: whitesmoke;
+    font-size: 67px;
+    font-family: initial;
+}
+
+.about{
+    background-image: url(../../assist/img/about-us.jpg);
+    height: 355px;
+    width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 150px 40px;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-width: 0;
+        background-size: cover;
+
+}
+
+
+.info h3{
+    font-size: 32px;
+    font-family: auto;
+}
+
+.info i{
+    font-size: 25px;
+}
+
+.info label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.info input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.today_banner{
+    background-image: url(../img/todays-menu.jpg);
+    height: 355px;
+    width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 150px 40px;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-width: 0;
+        background-size: cover;
+        
+  
+}
+
+.today_banner h2{
+    color: #fff;
+    font-family: "Cantata One", serif;
+    font-size: 36px;
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: #000;
+    opacity: .6;
+    padding: 20px 20px 20px 20px;
+    width: auto;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+
+.menus{
+    padding-top: 40px;
+    margin-bottom: -29px;
+
+}
+
+.aj{
+    background-color: #353332;
+    padding: 20px;
+    font-size: 17px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    border: 5px solid #4f9011;
+    margin-top: 5px;
+}
+
+button.btn.btn-info {
+    border-radius: 20px;
+    font-size: 35px;
+}
+
+.update{
+    width: 100%;
+    margin: 0px 0px 30px 0px !important;
+    padding: 20px 20px 20px 20px !important;
+    border: 1px #ccc solid;
+    border-radius: 30px;
+}
+
+.update h1{
+    font-size: 20px;
+    color: #fff;
+    margin: 0px 0px 0px 0px;
+    padding: 20px 20px 20px 20px;
+    font-weight: 400;
+    text-align: center;
+    background-color: #fd4e02;
+    border-radius: 20px;
+}
+
+.non_menu{
+
+    padding-top: 40px;
+    margin-bottom: -29px;
+
+}
+
+
+.selectplan{
+    background-image: url(../img/selectplan.jpg);
+    height: 355px;
+    width: 100%;
+    background-size: cover;
+    opacity: 0.9;   
+    padding-bottom: 20px;
+}
+
+.colum h3{
+    font-size: 24px;
+    color: #fff;
+    margin: 10px 20px;
+    padding: 15px 10px;
+    font-weight: 400;
+    text-align: center;
+    background-color: #4f9011;
+    border-radius: 30px;
+}
+
+.colum ul{
+    float: left;
+    margin: 0px 0 10px 0 !important;
+    padding: 0px !important;
+    width: 100%;
+    clear: both;
+}
+
+.colum h2{
+    font-size: 15px !important;
+    color: #fff !important;
+    margin: 0px 20px 15px 20px !important;
+    padding: 10px 15px 10px 15px !important;
+    font-weight: normal;
+    text-align: center !important;
+    background-color: #fd4e02 !important;
+    line-height: 22px !important;
+    border-radius: 20px;
+}
+
+.colum a{
+    font-size: 15px;
+    color: #fff;
+    /* margin: 0px 20px 0px 20px !important; */
+    padding: 10px 10px !important;
+    font-weight: 400;
+    text-align: center;
+    background-color: #4f9011;
+    display: block;
+    width: 210px;
+    border-radius: 5px;
+    margin: 0 auto 10px !important;
+    border: 1px solid #000;
+}
+
+.b{
+    border: 2px #ad9898 solid;
+    margin-top: 26px;
+    margin-left: 18px;
+    border-radius: 10%;
+}
+
+.cpass{
+    width : 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.lm{
+    margin-left: 52%;
+}
+
+.lr{
+    margin-right: 52%;
+}
+
+
+/*Admin page css*/
+
+.form-container{
+    min-height: 100vh;
+    width: 98vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    perspective: 1000px;
+}
+
+.form-container form{
+    height: 450px;
+    width: 350px;
+    background:rgba(255, 255, 255,.1);
+    text-align: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.3);
+    border-top: 1px solid rgba(255,255,255,.3);
+    border-left: 1px solid rgba(255,255,255,.3);
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+}
+
+.form-container form h3{
+    font-size: 30px;
+    padding: 30px 0;
+    color: #ccc;
+    letter-spacing: 3px;
+}
+
+.form-container form i{
+    padding: 0.5px;
+    font-size: 20px;
+    color: #bbb;
+}
+
+.form-container form input{
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 82%;
+    background:rgba(0,0,0,.1);
+    color: rgba(255, 255, 255,.7);
+    box-shadow: 0 0 5px rgbal(0,0,0,.5) inset;
+    font-size: 17px;
+    padding: 0 10px;
+    margin: 15px 0;
+    letter-spacing: 1px;
+    border-radius: 15px;
+}
+
+.form-container form input[type="submit"]
+{
+    width: 90%;
+    cursor: pointer;
+    background:linear-gradient(90deg,deeppink,blueviolet);
+    margin-top: 30px;
+    border-radius: 50px;
+}
+
+.form-container form input [type="submit"]:hover
+{
+    letter-spacing: 4px;
+}
+
+.m{
+    background-color: white;
+    color: black;
+}
+
