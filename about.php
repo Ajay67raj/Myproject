@@ -1,13 +1,3 @@
-<?php 
-
-$db = mysqli_connect('localhost','root','','contact_us');
-
-
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +19,7 @@ $db = mysqli_connect('localhost','root','','contact_us');
 
 
 
-    <script src="custome.js"></script>
+
   <script src="js/bootstrap.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -47,9 +37,11 @@ $db = mysqli_connect('localhost','root','','contact_us');
             <a href="#"><i class="bi bi-envelope s1">info.asbs@gmail.com</i></a>
           </div>
           <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12 s2">
-            <a class="btn btn-outline-danger" href="selectplan.php" role="button"><i class="bi bi-credit-card-2-front">Select
+            <a class="btn btn-outline-danger" href="selectplan.php" role="button"><i
+                class="bi bi-credit-card-2-front">Select
                 Plan</i></a>
-            <a class="btn btn-outline-danger" href="todaysmenu.php" role="button"><i class="bi bi-calendar3">Today's Menu</i></a>
+            <a class="btn btn-outline-danger" href="todaysmenu.php" role="button"><i class="bi bi-calendar3">Today's
+                Menu</i></a>
           </div>
         </div>
       </div>
@@ -90,79 +82,27 @@ $db = mysqli_connect('localhost','root','','contact_us');
     </div>
   </nav>
 
+  <section>
+    <div class="about">
+    </div>
+  </section>
+
+  <div class="container-fluid">
+    <p>Born with a mission to revolutionize eating habits, we believe in providing tiffins in Shirpur that are healthy,
+      homely and hygienic. These meals are ideal for people who are too busy to cook or don’t wish to compromise on
+      nutrition with restaurant food. The menu, at Yummy Tiffins, comes in a variety of mouth-watering cuisines and
+      nutritional options- a judicious mix of carbohydrates and proteins, low calorie content and no artificial
+      flavours/preservatives.</p>
+  </div>
 
 
   <section>
-          <div class="contact"> 
-              <h2>Contact Us</h2>            
-        </div>
-    </section>
+    <div class="footer" align="center">
+      <caption>All Copyright By ASBS @ 2021</caption>
+    </div>
+    </div>
+  </section>
 
+</body>
 
-    <section>
-        <div class="container-fluid">
-            <div class="info">
-               <div class="row">
-                   <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12" style="background-color: #f8f8f8;">
-                    <h3>Contact Adress</h3>
-                    <i class="bi bi-house-door">   :-  Om Apperment,Near Karvand Naka, Shirpur 425405 </i><br><br>
-                    <i class="bi bi-telephone-inbound-fill"> :- 7219446042, 8177882326</i><br><br>
-                    <i class="bi bi-envelope-open">  :-  infoasbs@gmail.com</i><br><br>
-                    <i class="bi bi-alarm"> :-  Open 24*7</i>
-                   </div>
-                   <div class="col-lg-7 col-sm-7 col-md-12 col-xs-12" align="center">
-                    <h1> Any Message for us </h1>
-
-                   <form  action="contact.php" method="POST">
-                     <label for="fname">First Name</label>
-                     <input type="text" name="firstname" placeholder="Your name..">
-                    
-                     <label for="fname">Last Name</label>
-                     <input type="text" name="lastname" placeholder="Your  lastname..">
-
-                     <label for="cont">Contact No</label>
-                     <input type="text" name="cont" placeholder="Your Contact No..">
-                    
-                    <label for="subject">Your Massage</label>
-                    <textarea id="subject" name="subject" placeholder="Write Here..." style="height:200px;"></textarea>
-                    
-                    <input type="submit" value="submit" name="submit"> 
-                    <a class="btn btn-outline-success" href="#" role="button">Reset</a> 
-                </form>
-                  </div>
-               </div>
-            </div>
-        </div>        
-    </section>
-
-    <br><br>
-
-    <section>
-        <div class="footer" align="center">
-            <caption>All Copyright By ASBS @ 2021</caption>
-        </div>
-        </div>
-    </section>
-
-
-    <?php 
-
-if(isset($_POST['submit'])) {
-
-
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$cont = $_POST['cont'];
-$subject = $_POST['subject'];
-
-echo"<script>alert('$firstname, $lastname, $cont, $subject')</script>";
-
-
-$insert = "insert into feedback value('$firstname','$lastname','$cont','$subject')";
-
-$run = mysqli_query($db,$insert);
-
-}
-
-
-?>
+</html>

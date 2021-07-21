@@ -1,49 +1,3 @@
-<?php 
-
-$con = mysql_connect('localhost','root','');
-
-if(isset($_POST['Signin'])) 
-{
-$Admin_Name = $_POST['AdminName'];
-$Admin_Password = $_POST['AdminPassword'];
-
-
-$db=mysql_selectdb("contact_us");
-if($db)
-{
-  echo "";
-}
-else
-{
-  echo "data not selected";
-}
-}
-
-$q= "select * from admin1 where Admin_Name='$Admin_Name' and Admin_Password=$Admin_Password";
- $q1=mysql_query($q,$con);
- $count=mysql_num_rows($q1);
-
- if($count==1)
- {
-   while ($rows=mysql_fetch_array($q1))
-   {
-     $uname=$rows["Admin_Name"];
-      session_start();
-     $_SESSION['cname']=$uname;
-  $a="Login Successfully....!!!";
-//}
-}
-      header("location:apage.php");
-mysql_close($con);
-}
-else
-{
-$a="Invalid username password..!!!";
-//echo mysql_error();
-}
- 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,13 +18,12 @@ $a="Invalid username password..!!!";
   <link rel="stylesheet" href="icons-1.4.0/font/bootstrap-icons.css">
 
 
+
   <script src="custome.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </head>
 
 <body>
@@ -128,36 +81,111 @@ $a="Invalid username password..!!!";
     </div>
   </nav>
 
-  <div class="container c">
-      <div class="login-form">
-    <h2>Admin Login</h2>
-    <form method="POST" action="admin.php">
-      <div class="input-filed">
-        <i class="fa fa-user"></i>
-        <input type="text" placeholder="Admin-Name" name="AdminName">
-      </div>
-      <div class="input-filed">
-        <i class="fa fa-lock"></i>
-        <input type="password" placeholder="Password" name="AdminPassword">
-      </div>
 
-      <button type="submit" name="Signin">Sign In</button>
+  <section>
+    <div class="bg_banner">
+      <h2>Online Tiffin Services System</h2>
+      <p>=======To Order Online=======</p>
+    </div>
+  </section>
 
-      <div class="extra">
-        <a href="#">Forget Password??</a>
-        
+  <div class="container-fluid">
+    <div class="banner_part">
+      <h2>Ordering Food Was Never So Easy</h2>
+      <p>------------Just Follow 4 easy staps------------</p>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="step">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-xs-12 box1">
+          <i class="bi bi-house-fill"></i>
+          <p>Choose Your <br> Tiffin Services</p></a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-12 box2">
+          <i class="bi bi-cart3"></i>
+          <p>Order Your<br> Tiffin</p></a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-12 box3">
+          <i class="bi bi-wallet2"></i>
+          <p>Pay On <br> Delivery</p></a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-12 box4">
+          <i class="bi bi-emoji-smile"></i>
+          <p>Enjoy Your <br> Tiffin</p></a>
+        </div>
       </div>
-    </form>
+    </div>
   </div>
- 
-  <div class="footer m" align="center">
-    <caption>All Copyright By ASBS @ 2021</caption>
-  </div>
-  </div>
-</div>
 
+  <div class="container-fluid">
+    <div class="availabel">
+      <h2>------------Food Availabel------------</h2>
+    </div>
+  </div>
+
+  <section>
+    <div class="container-fluid" align="center">
+      <div class="veg_tiffin">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-xs-12">
+            <img src="img/small veg.jpg">
+            <p>Small Veg_Tiffin Rs.45</p>
+            <a class="btn btn-outline-success" href="#" role="button">Order Now</a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-12">
+            <img src="img/medium veg.jpg">
+            <p>Medium Veg_Tiffin Rs.70</p>
+            <a class="btn btn-outline-success" href="#" role="button">Order Now</a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-12">
+            <img src="img/large veg.jpeg">
+            <p>Large Veg_Tiffin Rs.100</p>
+            <a class="btn btn-outline-success" href="#" role="button">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="orr" align="center">
+    <h2>Or</h2>
+  </div>
+
+
+  <section>
+    <div class="container-fluid" align="center">
+      <div class="nonveg_tiffin">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-xs-12">
+            <img src="img/smallnonveg.jpg">
+            <p>Small Nonveg_Tiffin Rs.55</p>
+            <a class="btn btn-outline-success" href="#" role="button">Order Now</a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-12">
+            <img src="img/mediumnonveg.jpg">
+            <p>Medium Nonveg_Tiffin Rs.80</p>
+            <a class="btn btn-outline-success" href="#" role="button">Order Now</a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-xs-12">
+            <img src="img/largenonveg"></a>
+            <p>Large Nonveg_Tiffin Rs.110</p>
+            <a class="btn btn-outline-success" href="#" role="button">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br><br><br>
+
+  <section>
+    <div class="footer" align="center">
+      <caption>All Copyright By ASBS @ 2021</caption>
+    </div>
+    </div>
+  </section>
 
 </body>
 
 </html>
-

@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.upage h2{
+    text-align: center;
+}
+
+.funtion h4{
+    margin: 9px 10px;
+    background-color: antiquewhite;
+    color: red;
+    text-align: center;
+}
+
+.selectplan {
+    
+    margin-bottom: 50px;
+}
+
+.b1{
+    background-image: url(../img/lunch.jpg);
+    color: whitesmoke;
+    border-radius: 40px;
+    font-family: cursive;
+    background-position-y: -165px;
+    height: 284px;
+    background-position-x: -123px;
+    
+}
+.b1 h4{
+    margin-top: 18%;
+    font-size: 35px;
+    margin-left: 15px;
+}
+
+.b1 a{
+    color: white;
+} 
+
+.b1{
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px black;
+}
+.col-lg-6,col-sm-6,col-md-6,col-xs-12,b1 {
+    margin-bottom: 40px;
+}
+
+.b2{
+    background-image: url(../img/dinner.jpg);
+    color: whitesmoke;
+    border-radius: 40px;
+    font-family: cursive;
+    text-align: center;
+    background-position-y: -307px;
+    background-position-x: -516px;
+    height: 284px;
+    
+
+}
+
+.b2 h4{
+    margin-top: 18%;
+    font-size: 35px;
+}
+
+.b2 a{
+    color: white;
+} 
+

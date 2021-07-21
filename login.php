@@ -1,9 +1,50 @@
 <?php 
 
-$db = mysqli_connect('localhost','root','','contact_us');
+$con = mysql_connect('localhost','root','');
+
+if(isset($_POST['login'])) 
+{
+$username = $_POST['username'];
+$pass = $_POST['pass'];
 
 
+$db=mysql_selectdb("contact_us");
+if($db)
+{
+  echo "database selected";
+}
+else
+{
+  echo "data not selected";
+}
+
+
+$q="select * from register where firstname='$username' and pass=$pass";
+    $q1=mysql_query($q,$con);
+	$count=mysql_num_rows($q1);
+	   if($count==1)	  
+	   {
+		   while($rows=mysql_fetch_array($q1))
+		   { 
+			$uname=$rows["firstname"];
+            session_start();
+			$_SESSION['cname']=$uname;
+	        $a="Login Successfully....!!!";
+		   //}
+		   }
+	            header("location:selectplan.php");
+				mysql_close($con);
+	   }
+	   else
+	   {
+			$a="Invalid username password..!!!";
+			//echo mysql_error();
+	   }
+
+
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,9 +85,9 @@ $db = mysqli_connect('localhost','root','','contact_us');
             <a href="#"><i class="bi bi-envelope s1">info.asbs@gmail.com</i></a>
           </div>
           <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12 s2">
-            <a class="btn btn-outline-danger" href="select" role="button"><i class="bi bi-credit-card-2-front">Select
+            <a class="btn btn-outline-danger" href="selectplan.php" role="button"><i class="bi bi-credit-card-2-front">Select
                 Plan</i></a>
-            <a class="btn btn-outline-danger" href="todaysmenu.html" role="button"><i class="bi bi-calendar3">Today's
+            <a class="btn btn-outline-danger" href="todaysmenu.php" role="button"><i class="bi bi-calendar3">Today's
                 Menu</i></a>
           </div>
         </div>
@@ -57,7 +98,7 @@ $db = mysqli_connect('localhost','root','','contact_us');
 
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">ASBS Tiffin Servics</a>
+    <a class="navbar-brand" href="index.php">ASBS Tiffin Servics</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -66,16 +107,16 @@ $db = mysqli_connect('localhost','root','','contact_us');
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="about.php">About us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="admin.html">Admin</a>
+          <a class="nav-link" href="admin.php">Admin</a>
         </li><br><br>
         <li class="nav-item">
           <a class="nav-link" href="login.php">Login </a>
@@ -110,7 +151,7 @@ $db = mysqli_connect('localhost','root','','contact_us');
         <input type="submit" name="login" value="login">
     </class>    
     <a href="#" class="lm">forget password?</a>
-    
+    <font color="red"><?php echo $a;?></font>
     <a href="registration.php" class="lr">Create Account?</a>
   </form>
 </div>
@@ -125,26 +166,7 @@ $db = mysqli_connect('localhost','root','','contact_us');
     </section>
 
 
-    <?php 
-
-if(isset($_POST['login'])) {
-
-
-$username = $_POST['username'];
-$pass = $_POST['pass'];
-
-echo"<script>alert('$username','$pass')</script>";
-
-
-$insert = "insert into cust_login value('$username','$pass')";
-
-$run = mysqli_query($db,$insert);
-
-}
-
-
-?>
-
+    
 </body>
 
 </html>

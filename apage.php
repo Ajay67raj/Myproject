@@ -1,48 +1,3 @@
-<?php 
-
-$con = mysql_connect('localhost','root','');
-
-if(isset($_POST['Signin'])) 
-{
-$Admin_Name = $_POST['AdminName'];
-$Admin_Password = $_POST['AdminPassword'];
-
-
-$db=mysql_selectdb("contact_us");
-if($db)
-{
-  echo "";
-}
-else
-{
-  echo "data not selected";
-}
-}
-
-$q= "select * from admin1 where Admin_Name='$Admin_Name' and Admin_Password=$Admin_Password";
- $q1=mysql_query($q,$con);
- $count=mysql_num_rows($q1);
-
- if($count==1)
- {
-   while ($rows=mysql_fetch_array($q1))
-   {
-     $uname=$rows["Admin_Name"];
-      session_start();
-     $_SESSION['cname']=$uname;
-  $a="Login Successfully....!!!";
-//}
-}
-      header("location:apage.php");
-mysql_close($con);
-}
-else
-{
-$a="Invalid username password..!!!";
-//echo mysql_error();
-}
- 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,6 +17,8 @@ $a="Invalid username password..!!!";
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="icons-1.4.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style1.css">
+
 
 
   <script src="custome.js"></script>
@@ -69,8 +26,6 @@ $a="Invalid username password..!!!";
   <script src="js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </head>
 
 <body>
@@ -102,6 +57,11 @@ $a="Invalid username password..!!!";
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+     Welcome Admin ..
+                <?php 
+                SESSION_start();
+                echo $_SESSION['cname'];
+                ?>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
@@ -114,50 +74,58 @@ $a="Invalid username password..!!!";
         <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
+        
         <li class="nav-item">
-          <a class="nav-link" href="admin.php">Admin</a>
-        </li><br><br>
-        <li class="nav-item">
-          <a class="nav-link" href="login.php">Login </a>
+          <a class="nav-link" href="logout.php">Logout </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="registration.php">Registration</a>
-        </li>
-
+  
       </ul>
     </div>
   </nav>
 
-  <div class="container c">
-      <div class="login-form">
-    <h2>Admin Login</h2>
-    <form method="POST" action="admin.php">
-      <div class="input-filed">
-        <i class="fa fa-user"></i>
-        <input type="text" placeholder="Admin-Name" name="AdminName">
+  <section>
+      <div class="upage">
+          <h2><u>Welcome Admin </u></h2>
       </div>
-      <div class="input-filed">
-        <i class="fa fa-lock"></i>
-        <input type="password" placeholder="Password" name="AdminPassword">
+  </section>
+  
+  <section>
+      <div class="container-fluid">
+        <div class="funtion"> 
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-xs-12">
+                  
+             <a href="reports.php"><h4> Reports </h4></a><br>    
+           <a href="addtiffi.php"><h4>Add Tiffin</h4></a> 
+            <a href="Removetiffin.php"><h4>Remove Tiffin</h4></a>
+            <a href="changeprice.php"><h4>Change Price</h4></a>
+            <a href="#"><h4>Refund Statues</h4></a>
+            <a href="newadmin.php"><h4>Add A New Admin</h4></a>
+            
+        </div>          
       </div>
+  </section>
 
-      <button type="submit" name="Signin">Sign In</button>
 
-      <div class="extra">
-        <a href="#">Forget Password??</a>
-        
-      </div>
-    </form>
-  </div>
- 
-  <div class="footer m" align="center">
+  <section>
+  <div class="footer" align="center">
     <caption>All Copyright By ASBS @ 2021</caption>
   </div>
   </div>
-</div>
+</section>
 
-
+<?php
+session_start();
+if(($_SESSION['cname']==null))
+{
+	header("location:admin.php");
+}
+else
+{
+?>
 </body>
 
+<?php 
+}
+?>
 </html>
-

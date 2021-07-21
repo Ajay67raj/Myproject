@@ -1,49 +1,3 @@
-<?php 
-
-$con = mysql_connect('localhost','root','');
-
-if(isset($_POST['Signin'])) 
-{
-$Admin_Name = $_POST['AdminName'];
-$Admin_Password = $_POST['AdminPassword'];
-
-
-$db=mysql_selectdb("contact_us");
-if($db)
-{
-  echo "";
-}
-else
-{
-  echo "data not selected";
-}
-}
-
-$q= "select * from admin1 where Admin_Name='$Admin_Name' and Admin_Password=$Admin_Password";
- $q1=mysql_query($q,$con);
- $count=mysql_num_rows($q1);
-
- if($count==1)
- {
-   while ($rows=mysql_fetch_array($q1))
-   {
-     $uname=$rows["Admin_Name"];
-      session_start();
-     $_SESSION['cname']=$uname;
-  $a="Login Successfully....!!!";
-//}
-}
-      header("location:apage.php");
-mysql_close($con);
-}
-else
-{
-$a="Invalid username password..!!!";
-//echo mysql_error();
-}
- 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,13 +18,12 @@ $a="Invalid username password..!!!";
   <link rel="stylesheet" href="icons-1.4.0/font/bootstrap-icons.css">
 
 
+
   <script src="custome.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </head>
 
 <body>
@@ -84,7 +37,8 @@ $a="Invalid username password..!!!";
             <a href="#"><i class="bi bi-envelope s1">info.asbs@gmail.com</i></a>
           </div>
           <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12 s2">
-            <a class="btn btn-outline-danger" href="selectplan.php" role="button"><i class="bi bi-credit-card-2-front">Select
+            <a class="btn btn-outline-danger" href="selectplan.php" role="button"><i
+                class="bi bi-credit-card-2-front">Select
                 Plan</i></a>
             <a class="btn btn-outline-danger" href="todaysmenu.php" role="button"><i class="bi bi-calendar3">Today's
                 Menu</i></a>
@@ -102,7 +56,11 @@ $a="Invalid username password..!!!";
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    Hi User.....
+                <?php
+                SESSION_start();
+                 echo $_SESSION['cname'];
+                 ?>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
@@ -128,36 +86,105 @@ $a="Invalid username password..!!!";
     </div>
   </nav>
 
-  <div class="container c">
-      <div class="login-form">
-    <h2>Admin Login</h2>
-    <form method="POST" action="admin.php">
-      <div class="input-filed">
-        <i class="fa fa-user"></i>
-        <input type="text" placeholder="Admin-Name" name="AdminName">
-      </div>
-      <div class="input-filed">
-        <i class="fa fa-lock"></i>
-        <input type="password" placeholder="Password" name="AdminPassword">
-      </div>
 
-      <button type="submit" name="Signin">Sign In</button>
+  <section>
+    <div class="today_banner" align="center">
+      <h2>Today's Menu</h2>
+    </div>
+  </section>
 
-      <div class="extra">
-        <a href="#">Forget Password??</a>
-        
+  <section>
+    <div class="container-fluid">
+      <div class="menus">
+        <button type="button" class="btn btn-info">Veg Menu</button>
+        <div class="row">
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>METHI SABJI</label>
+          </div>
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>CHOLE SABJI</label>
+          </div>
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>DAL</label>
+          </div>
+        </div>
       </div>
-    </form>
-  </div>
- 
-  <div class="footer m" align="center">
-    <caption>All Copyright By ASBS @ 2021</caption>
-  </div>
-  </div>
-</div>
+    </div>
 
+    <div class="container-fluid">
+      <div class="menus1">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>SPICY DAL</label>
+          </div>
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>RICE</label>
+          </div>
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>CHAPATI</label>
+  </section>
+
+  <section>
+    <div class="update">
+      <h1>Please Note: Menu will be update on same day before 10.00 AM</h1>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container-fluid">
+      <div class="non_menu">
+        <button type="button" class="btn btn-info">Nonveg Menu</button>
+        <div class="row">
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>BUTTER CHICKEN</label>
+          </div>
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>CHICKEN MASALA</label>
+          </div>
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>CHICKEN BIRYANI</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="menus1">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>MUTTON MASALA</label>
+          </div>
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>MUTTON KORMA</label>
+          </div>
+
+          <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12 aj">
+            <label>MUTTION BIRYANI</label>
+  </section>
+
+  <section>
+    <div class="update">
+      <h1>Please Note: Menu will be update on same day before 11.00 AM</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="footer" align="center">
+      <caption>All Copyright By ASBS @ 2021</caption>
+    </div>
+    </div>
+  </section>
 
 </body>
 
 </html>
-

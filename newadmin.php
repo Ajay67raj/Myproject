@@ -1,12 +1,48 @@
 <?php 
 
-$db = mysqli_connect('localhost','root','','contact_us');
+$con = mysql_connect('localhost','root','');
 
+if(isset($_POST['newadmin'])) 
+{
+$aname = $_POST['aname'];
+$apass = $_POST['apass'];
+$acpass = $_POST['acpass'];
 
+$db=mysql_selectdb("contact_us");
+if($db)
+{
+  echo "";
+}
+else
+{
+  echo "data not selected";
+}
+}
+
+$q= "select * from new_admin where aname='$aname' and apss=$apss";
+ $q1=mysql_query($q,$con);
+ $count=mysql_num_rows($q1);
+
+ if($count==1)
+ {
+   while ($rows=mysql_fetch_array($q1))
+   {
+     $uname=$rows["aname"];
+      session_start();
+     $_SESSION['cname']=$uname;
+  $a="Login Successfully....!!!";
+//}
+}
+      header("location:apage.php");
+mysql_close($con);
+}
+else
+{
+$a="Invalid username password..!!!";
+//echo mysql_error();
+}
+ 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,10 +62,11 @@ $db = mysqli_connect('localhost','root','','contact_us');
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="icons-1.4.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style1.css">
 
 
 
-    <script src="custome.js"></script>
+  <script src="custome.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -49,7 +86,8 @@ $db = mysqli_connect('localhost','root','','contact_us');
           <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12 s2">
             <a class="btn btn-outline-danger" href="selectplan.php" role="button"><i class="bi bi-credit-card-2-front">Select
                 Plan</i></a>
-            <a class="btn btn-outline-danger" href="todaysmenu.php" role="button"><i class="bi bi-calendar3">Today's Menu</i></a>
+            <a class="btn btn-outline-danger" href="todaysmenu.php" role="button"><i class="bi bi-calendar3">Today's
+                Menu</i></a>
           </div>
         </div>
       </div>
@@ -64,6 +102,11 @@ $db = mysqli_connect('localhost','root','','contact_us');
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    Welcome Admin ..
+                <?php 
+                SESSION_start();
+                echo $_SESSION['cname'];
+                ?>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
@@ -80,89 +123,49 @@ $db = mysqli_connect('localhost','root','','contact_us');
           <a class="nav-link" href="admin.php">Admin</a>
         </li><br><br>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Login </a>
+          <a class="nav-link" href="logout.php">Logout </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="registration.php">Registration</a>
-        </li>
-
+       
       </ul>
     </div>
   </nav>
 
-
-
   <section>
-          <div class="contact"> 
-              <h2>Contact Us</h2>            
-        </div>
-    </section>
+      <div class="upage">
+          <h2><u>Welcome Admin </u></h2>
+      </div>
+  </section>
 
 
-    <section>
-        <div class="container-fluid">
-            <div class="info">
-               <div class="row">
-                   <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12" style="background-color: #f8f8f8;">
-                    <h3>Contact Adress</h3>
-                    <i class="bi bi-house-door">   :-  Om Apperment,Near Karvand Naka, Shirpur 425405 </i><br><br>
-                    <i class="bi bi-telephone-inbound-fill"> :- 7219446042, 8177882326</i><br><br>
-                    <i class="bi bi-envelope-open">  :-  infoasbs@gmail.com</i><br><br>
-                    <i class="bi bi-alarm"> :-  Open 24*7</i>
-                   </div>
-                   <div class="col-lg-7 col-sm-7 col-md-12 col-xs-12" align="center">
-                    <h1> Any Message for us </h1>
+<div class="container-fluid">
+    <div class="heding-form">
+    <h3> Register a New Admin </h3>
+  <form>
+    
+       <label> Admin Name </label> <br>
+       <input type="text" placeholder="Enter new admin Name" name="nadmin">  <br>
+      
+       <label>Password</label><br>
+      <input type="password" placeholder="Enter your Password" name="apass"><br>
 
-                   <form  action="contact.php" method="POST">
-                     <label for="fname">First Name</label>
-                     <input type="text" name="firstname" placeholder="Your name..">
-                    
-                     <label for="fname">Last Name</label>
-                     <input type="text" name="lastname" placeholder="Your  lastname..">
+      <label>Confirm Password</label> <br>
+      <input type="password" placeholder="Confirm Password" name="acpass"> <br>
+      <br>
 
-                     <label for="cont">Contact No</label>
-                     <input type="text" name="cont" placeholder="Your Contact No..">
-                    
-                    <label for="subject">Your Massage</label>
-                    <textarea id="subject" name="subject" placeholder="Write Here..." style="height:200px;"></textarea>
-                    
-                    <input type="submit" value="submit" name="submit"> 
-                    <a class="btn btn-outline-success" href="#" role="button">Reset</a> 
-                </form>
-                  </div>
-               </div>
-            </div>
-        </div>        
-    </section>
+      <button type="submit" name="newadmin">Confirm new Admin</button> 
 
-    <br><br>
+    </form>
+  </div>
+ </div>
+ 
+ <br>
+ 
+ <div class="footer" align="center">
+    <caption>All Copyright By ASBS @ 2021</caption>
+  </div>
+  </div>
+</section>
 
-    <section>
-        <div class="footer" align="center">
-            <caption>All Copyright By ASBS @ 2021</caption>
-        </div>
-        </div>
-    </section>
+</body>
 
-
-    <?php 
-
-if(isset($_POST['submit'])) {
-
-
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$cont = $_POST['cont'];
-$subject = $_POST['subject'];
-
-echo"<script>alert('$firstname, $lastname, $cont, $subject')</script>";
-
-
-$insert = "insert into feedback value('$firstname','$lastname','$cont','$subject')";
-
-$run = mysqli_query($db,$insert);
-
-}
-
-
-?>
+</html>

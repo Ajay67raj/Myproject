@@ -1,12 +1,3 @@
-<?php 
-
-$db = mysqli_connect('localhost','root','','contact_us');
-
-
-?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +20,7 @@ $db = mysqli_connect('localhost','root','','contact_us');
 
 
 
-    <script src="custome.js"></script>
+  <script src="custome.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -49,7 +40,8 @@ $db = mysqli_connect('localhost','root','','contact_us');
           <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12 s2">
             <a class="btn btn-outline-danger" href="selectplan.php" role="button"><i class="bi bi-credit-card-2-front">Select
                 Plan</i></a>
-            <a class="btn btn-outline-danger" href="todaysmenu.php" role="button"><i class="bi bi-calendar3">Today's Menu</i></a>
+            <a class="btn btn-outline-danger" href="todaysmenu.php" role="button"><i class="bi bi-calendar3">Today's
+                Menu</i></a>
           </div>
         </div>
       </div>
@@ -64,6 +56,11 @@ $db = mysqli_connect('localhost','root','','contact_us');
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    Hi User ..
+                <?php 
+                SESSION_start();
+                echo $_SESSION['cname'];
+                ?>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
@@ -80,89 +77,80 @@ $db = mysqli_connect('localhost','root','','contact_us');
           <a class="nav-link" href="admin.php">Admin</a>
         </li><br><br>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Login </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="registration.php">Registration</a>
+          <a class="nav-link" href="logout.php">Logout </a>
         </li>
 
       </ul>
     </div>
   </nav>
 
+    <div class="container-fluid">
+      <div class="colum">
+        <div class="row">
+        <?php
+        $con=mysql_connect("localhost","root","");
+        $db=mysql_selectdb("contact_us");
+             $qq="select * from add_tiffin where tcategory='Veg'";
+            $q1=mysql_query($qq,$con);
+     while($rows=mysql_fetch_array($q1))
+     { 
+    $pid=$rows[0];
+    ?>
+          <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 b">
+          
+            <h3>Small Veg Tiffin</h3>
+            <ul>
+            <img src="http://localhost/assist/upload/<?php echo $rows[6];?>" height="200" width="300"> </img>
 
+              <li><h2> Product ID<?php echo $rows[0];?> </h2>
+                  <hr>
+                </i></li>
+
+                <li><i class="bi bi-tropical-storm"><?php echo $rows[2];?> (1)
+                  <hr>
+                </i></li>
+              <li><i class="bi bi-tropical-storm"></i>Chapati (4)
+                <hr>
+              <li>
+              <li style="color: red;"><i class="bi bi-tropical-storm"></i>Bhakri (2) Only On Friday
+                <hr>
+              </li>
+              <li><i class="bi bi-tropical-storm"></i>Dal
+                <hr>
+              </li>
+              <li><i class="bi bi-tropical-storm"></i>Pickle (Complimentary)
+                <hr>
+              </li>
+            </ul>
+            <div style="clear: both;"></div>
+            <h2>5 Meals Trial : Rs. 617/-(Including DC)</h2>
+            <h2>6 Meals : Rs. 741/-(Including DC)</h2>
+            <h2>20 Meals : Rs. 2468/-(Including DC)</h2>
+            <h2>24 Meals : Rs. 2964/-(Including DC)</h2>
+
+             <h3>Order Time <?php echo $rows[4];?></h3>
+            <?php echo "<a href='order.php?pidd=$pid'>Order Now</a>";?>
+          </div>
+          <?php
+     }
+     ?>
+
+          
+    </div>
+      </div>
+    </div>
+  </section>
 
   <section>
-          <div class="contact"> 
-              <h2>Contact Us</h2>            
-        </div>
-    </section>
+    <div class="footer" align="center">
+      <caption>All Copyright By ASBS @ 2021</caption>
+    </div>
+    </div>
+  </section>
+
+  </body>
+  </html>
 
 
-    <section>
-        <div class="container-fluid">
-            <div class="info">
-               <div class="row">
-                   <div class="col-lg-5 col-sm-5 col-md-5 col-xs-12" style="background-color: #f8f8f8;">
-                    <h3>Contact Adress</h3>
-                    <i class="bi bi-house-door">   :-  Om Apperment,Near Karvand Naka, Shirpur 425405 </i><br><br>
-                    <i class="bi bi-telephone-inbound-fill"> :- 7219446042, 8177882326</i><br><br>
-                    <i class="bi bi-envelope-open">  :-  infoasbs@gmail.com</i><br><br>
-                    <i class="bi bi-alarm"> :-  Open 24*7</i>
-                   </div>
-                   <div class="col-lg-7 col-sm-7 col-md-12 col-xs-12" align="center">
-                    <h1> Any Message for us </h1>
 
-                   <form  action="contact.php" method="POST">
-                     <label for="fname">First Name</label>
-                     <input type="text" name="firstname" placeholder="Your name..">
-                    
-                     <label for="fname">Last Name</label>
-                     <input type="text" name="lastname" placeholder="Your  lastname..">
-
-                     <label for="cont">Contact No</label>
-                     <input type="text" name="cont" placeholder="Your Contact No..">
-                    
-                    <label for="subject">Your Massage</label>
-                    <textarea id="subject" name="subject" placeholder="Write Here..." style="height:200px;"></textarea>
-                    
-                    <input type="submit" value="submit" name="submit"> 
-                    <a class="btn btn-outline-success" href="#" role="button">Reset</a> 
-                </form>
-                  </div>
-               </div>
-            </div>
-        </div>        
-    </section>
-
-    <br><br>
-
-    <section>
-        <div class="footer" align="center">
-            <caption>All Copyright By ASBS @ 2021</caption>
-        </div>
-        </div>
-    </section>
-
-
-    <?php 
-
-if(isset($_POST['submit'])) {
-
-
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$cont = $_POST['cont'];
-$subject = $_POST['subject'];
-
-echo"<script>alert('$firstname, $lastname, $cont, $subject')</script>";
-
-
-$insert = "insert into feedback value('$firstname','$lastname','$cont','$subject')";
-
-$run = mysqli_query($db,$insert);
-
-}
-
-
-?>
+  
